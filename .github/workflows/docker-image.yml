@@ -15,4 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Docker/Dockerfile --tag weatherapp-dot-py:$(date +%s)
+      run: |
+        docker build . --file Docker/Dockerfile --tag weatherapp-dot-py:latest
+        docker tag weatherapp-dot-py:latest vikasdfghjl/weatherapp-dot-py:$(date +%s)
+        docker push vikasdfghjl//weatherapp-dot-py:$(date +%s)
