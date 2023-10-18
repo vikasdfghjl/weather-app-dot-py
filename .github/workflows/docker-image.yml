@@ -8,14 +8,31 @@ on:
 
 jobs:
 
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: checkout code
+      uses: actions/checkout@v3
+    
+    - name: set up docker
+      uses: docker/setup-qemu-action@v1
+    
+    - name: login to dockerhub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    
     - name: Build the Docker image
       run: |
         docker build -t weatherapp-dot-py:latest -f Docker/Dockerfile .
+    
+    - name: tagging the docker image
+      run: |
         docker tag weatherapp-dot-py:latest vikasdfghjl/weatherapp-dot-py:$(date +%s)
+    
+    - name: push the image
+      run: |
+        docker push vikasdfghjl/weatherapp-dot-py:$(date +%s)
         
