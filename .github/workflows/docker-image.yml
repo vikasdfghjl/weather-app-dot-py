@@ -30,9 +30,9 @@ jobs:
     
     - name: tagging the docker image
       run: |
-        docker tag weatherapp-dot-py:latest vikasdfghjl/weatherapp-dot-py:${{ steps.docker_meta.outputs.labels }}
+        docker tag weatherapp-dot-py:latest vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}
     
     - name: push the image
       run: |
-        docker push vikasdfghjl/weatherapp-dot-py:${{ steps.docker_meta.outputs.labels }}
+        docker push vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}
         
