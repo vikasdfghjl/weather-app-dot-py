@@ -17,4 +17,5 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build -t weatherapp-dot-py:latest -f Docker/Dockerfile .
+        docker tag weatherapp-dot-py:latest vikasdfghjl/weatherapp-dot-py:$(date +%s)
         
