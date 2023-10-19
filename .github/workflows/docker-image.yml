@@ -30,6 +30,6 @@ jobs:
     - name: Build and Push the Docker image
       uses: docker/build-push-action@v5
       with:
-        context: Docker/Dockerfile
+        context: ./Docker
         push: true
         tags: vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}        
