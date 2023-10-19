@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+    
+    - name: Build and Push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with: 
+        image:
+        registry: vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}
+        username: ${{ secrefs. DOCKER_USERNAME }}
+        password: ${{ secrefs. DOCKER_PASSWORD }}
+      
