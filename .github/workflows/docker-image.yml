@@ -24,9 +24,15 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     
-    - name: Build and Push the Docker image
-      uses: docker/build-push-action@v5
-      with:
-        context: ./Docker
-        push: true
-        tags: vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}        
+    - name: Build the Docker image
+      run: |
+        docker build -t weatherapp-dot-py:latest -f Docker/Dockerfile .
+    
+    - name: tagging the docker image
+      run: |
+        docker tag weatherapp-dot-py:latest vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}
+    
+    - name: push the image
+      run: |
+        docker push vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}
+        

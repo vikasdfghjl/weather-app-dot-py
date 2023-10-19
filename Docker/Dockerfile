@@ -13,6 +13,9 @@ COPY . .
 
 RUN pip install --upgrade pip
 
+RUN apt clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /root/.cache
 
 EXPOSE 4000
 
