@@ -21,6 +21,6 @@ jobs:
         image: vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}
         registry: http://registry.hub.docker.com/v2/
         dockerfile: Docker/Dockerfile
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
       
