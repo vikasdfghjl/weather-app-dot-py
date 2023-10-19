@@ -20,6 +20,6 @@ jobs:
       with: 
         image:
         registry: vikasdfghjl/weatherapp-dot-py:${{ github.run_number }}
-        username: ${{ secrefs. DOCKER_USERNAME }}
-        password: ${{ secrefs. DOCKER_PASSWORD }}
+        username: ${{ secrets. DOCKER_USERNAME }}
+        password: ${{ secrets. DOCKER_PASSWORD }}
       
