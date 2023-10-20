@@ -6,3 +6,4 @@ and add the  following
 ```python
 OPENWEATHERMAP_API_KEY = "your-weather-api-key"
 ```
+
