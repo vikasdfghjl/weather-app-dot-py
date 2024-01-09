@@ -1,4 +1,3 @@
-"""Module providing a function printing python version."""
 import requests
 from config import OPENWEATHERMAP_API_KEY
 
