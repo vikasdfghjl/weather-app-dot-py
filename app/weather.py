@@ -1,9 +1,9 @@
-
+"""Module providing a function printing python version."""
 import requests
 from config import OPENWEATHERMAP_API_KEY
 
 
-def get_weather_data(city_name):
+def get_weather_data(city_name): 
     base_url = "https://api.openweathermap.org/data/2.5/weather"
     params = {
         "q": city_name,
